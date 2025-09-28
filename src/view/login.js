@@ -1,66 +1,141 @@
 import { navigateTo } from '../main.js';
 
 export function loginView() {
-    const container = document.createElement('div');
-    container.classList.add('login-container');
+    // Contenedor general
+    const generalContainer = document.createElement('div');
+    generalContainer.classList.add('general-container');
 
+    // Titulo principal
     const title = document.createElement('h2');
-    title.textContent = 'Bienvenido a la App de Tareas';
-    title.classList.add('title-login');
+    title.textContent = 'Bienvenido';
+    title.classList.add('title-general');
+
+    // Contenedor para las dos columnas (row)
+    const row = document.createElement('div');
+    row.classList.add('row-container');
+
+    // Columna izquierda (imagen)
+    const leftCol = document.createElement('div');
+    leftCol.classList.add('col-left');
+    const img = document.createElement('img');
+    img.src = './assets/banner-inicio.svg';
+    img.alt = 'Ilustracion Login';
+    img.classList.add('login-image');
+    leftCol.appendChild(img);
+
+    // Columna derecha (formulario)
+    const rightCol = document.createElement('div');
+    rightCol.classList.add('col-right');
 
     const form = document.createElement('form');
     form.classList.add('login-form');
 
-    const name = document.createElement('input');
-    name.placeholder = 'Tu nombre';
-    name.classList.add('input-name');
-    name.type = 'text';
+    // Label + Input: Email
+    const emailLabel = document.createElement('label');
+    emailLabel.textContent = 'Correo electrónico';
+    emailLabel.setAttribute('for', 'input-email');
 
-    const lastname = document.createElement('input');
-    lastname.placeholder = 'Tu apellido';
-    lastname.classList.add('input-lastname');
-    lastname.type = 'text';
+    const email = document.createElement('input');
+    email.placeholder = 'ejemplo@correo.com';
+    email.classList.add('input-email');
+    email.type = 'email';
+    email.id = 'input-email';
 
+    // Label + Input: Clave
+    const passLabel = document.createElement('label');
+    passLabel.textContent = 'Clave';
+    passLabel.setAttribute('for', 'input-pass');
+
+    const password = document.createElement('input');
+    password.placeholder = 'Tu clave';
+    password.classList.add('input-pass');
+    password.type = 'password';
+    password.id = 'input-pass';
+
+    // Botón
     const button = document.createElement('button');
     button.textContent = 'Ingresar';
     button.classList.add('login-button');
-    button.type = 'submit'; 
+    button.type = 'submit';
 
-    // Validación: solo letras (incluye ñ y acentos), y espacios
-    const esTextoValido = (texto) => {
-        const limpio = texto.trim();
-        const soloLetras = /^[a-zA-ZñÑáéíóúÁÉÍÓÚ]+(?:\s[a-zA-ZñÑáéíóúÁÉÍÓÚ]+)*$/;
-        return soloLetras.test(limpio);
+    // Validación de email
+    const esEmailValido = (correo) => {
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return regex.test(correo);
     };
 
-    // Manejo del envío del formulario y validación
     form.addEventListener('submit', (e) => {
         e.preventDefault();
 
-        const nombre = name.value.trim();
-        const apellido = lastname.value.trim();
-        console.log('Nombre:', nombre, 'Apellido:', apellido);
+        const correo = email.value.trim();
+        const clave = password.value.trim();
 
-        if (!nombre || !apellido) {
-            alert('Por favor, completa ambos campos.');
+        if (!correo || !clave) {
+            alert('Por favor, completa todos los campos.');
             return;
         }
 
-        if (!esTextoValido(nombre) || !esTextoValido(apellido)) {
-            alert('Solo se permiten letras y espacios en nombre y apellido.');
+        if (!esEmailValido(correo)) {
+            alert('Por favor, ingresa un correo electrónico válido.');
             return;
         }
 
-        localStorage.setItem('username', nombre);
-        localStorage.setItem('lastname', apellido);
+        // Guardamos en localStorage para pruebas
+        localStorage.setItem('userEmail', correo);
+        localStorage.setItem('userPass', clave);
+
         navigateTo('/task');
     });
 
-    // Estructura del DOM
-    form.appendChild(name);
-    form.appendChild(lastname);
+    // Estructura del form
+    form.appendChild(emailLabel);
+    form.appendChild(email);
+    form.appendChild(passLabel);
+    form.appendChild(password);
     form.appendChild(button);
-    container.appendChild(title);
-    container.appendChild(form);
-    return container;
+
+    rightCol.appendChild(form);
+
+    // Titulo segundario
+    const title2 = document.createElement('h2');
+    title2.textContent = 'Información';
+    title2.classList.add('title-general2');
+
+    // --- Segundo row ---
+    const secondRow = document.createElement('div');
+    secondRow.classList.add('row-container', 'second-row');
+
+    // Parrafo
+    const paragraph = document.createElement('p');
+    paragraph.textContent = '¡Bienvenido! \n Registrate ahora en nuestra aplicacion y forma parte de la comunidad que contribuye a un entorno mas limpio y sostenible.\n\n •Si eres usuario, podras solicitar y gestionar la recoleccion de tus residuos de manera facil y rapida.\n •Si eres una empresa recolectora, tendras acceso a nuevas oportunidades para conectar con usuarios y optimizar tu servicio.\n\n ¡Crea tu cuenta y empieza a hacer la diferencia hoy mismo!'
+
+
+    // Contenedor para los botones
+    const buttonGroup = document.createElement('div');
+    buttonGroup.classList.add('button-group');
+
+    const registerBtn = document.createElement('button');
+    registerBtn.textContent = 'Registrarse';
+    registerBtn.classList.add('secondary-button');
+
+    const homeBtn = document.createElement('button');
+    homeBtn.textContent = 'Inicio';
+    homeBtn.classList.add('secondary-button');
+
+    // Agregar botones al contenedor
+    buttonGroup.appendChild(registerBtn);
+    buttonGroup.appendChild(homeBtn);
+
+    // Armar estructura
+    row.appendChild(leftCol);
+    row.appendChild(rightCol);
+    secondRow.appendChild(paragraph);
+    secondRow.appendChild(buttonGroup);
+
+    generalContainer.appendChild(title);
+    generalContainer.appendChild(row);
+    generalContainer.appendChild(title2);
+    generalContainer.appendChild(secondRow);
+
+    return generalContainer;
 }
