@@ -1,4 +1,4 @@
-# Entrega #1 PSP
+# Entrega #1 Ingenieria de software
 
 Este es un proyecto básico que incluye HTML, CSS y JavaScript. 
 
