@@ -7,14 +7,19 @@
 
 body {
   font-family: Arial, sans-serif;
-  /* height: 100vh; */
+  height: 100vh;
   min-height: 100vh;
-  background: url(https://www.transparenttextures.com/patterns/asfalt-dark.png);
-  background-color: #052c66;
+  min-width: 99vw;
+  /* background: url(https://www.transparenttextures.com/patterns/asfalt-dark.png); */
+  background-color: #FFFFFF;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center;
+  align-items: center; */
   padding: 20px;
+  font-family: 'DM Sans';
+  display: flex;
+  flex-direction: column;
+  padding-top: 130px;
 }
 
 
@@ -22,4 +27,93 @@ input,
 button {
   padding: 8px;
   margin: 5px 0;
+}
+
+img.logo {
+  max-width: 320px;
+}
+
+.logo {
+  padding: 0px;
+}
+
+/* Preheader fijo */
+.preheader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #2E7D32;
+  color: white;
+  text-align: center;
+  padding: 6px 12px;
+  font-size: 14px;
+  z-index: 1000;
+}
+
+/* Header fijo, debajo del preheader */
+.main-header {
+  position: fixed;
+  top: 30px;
+  /* altura aprox del preheader */
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  padding: 0px 24px;
+  border-bottom: 1px solid #2E7D32;
+  z-index: 999;
+}
+
+.main-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #F5F5DC;
+  border-top: 1px solid #2E7D32;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  z-index: 1000;
+  font-size: 14px;
+  gap: 150px;
+}
+
+/* columnas del footer */
+.footer-col {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+/* texto de cada columna */
+.footer-col p {
+  margin: 0;
+      color: #2E7D32;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+img.logo-footer {
+  max-height: 40px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.social-icons img {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.social-icons img:hover {
+  transform: scale(1.1);
 }

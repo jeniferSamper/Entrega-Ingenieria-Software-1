@@ -8,11 +8,6 @@
   text-align: center;
 }
 
-.title-login {
-  margin-bottom: 20px;
-  font-size: 1.8em;
-  color: #052c66;
-}
 
 .login-form {
   display: flex;
@@ -39,19 +34,129 @@
 .login-button {
   padding: 12px;
   font-size: 1em;
-  background-color: #052c66;
+  background-color: #2E7D32;
   color: #ffffff;
   border: none;
   border-radius: 8px;
+  font-weight: 700;
   cursor: pointer;
   transition: all 0.5s ease;
   border: 2px solid #ffffff;
+  border-radius: 200px 100px 100px 8px;
 }
 
 .login-button:hover {
-  background-color: #ffffff;
-  color: #052c66;
-  border: 2px solid #052c66;
+  background-color: #F5F5DC;
+  color: #2E7D32;
+  border: 2px solid #2E7D32;
+}
+
+.general-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.title-general {
+  margin-bottom: 20px;
+    font-size: 33px;
+  font-weight: 700;
+  color: #2E7D32;
+  text-align: left;
+}
+
+.title-general2 {
+  margin: 50px 0px 20px 0px;
+    font-size: 33px;
+  font-weight: 700;
+  color: #2E7D32;
+  text-align: left;
+}
+
+.row-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+
+
+.login-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.col-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 400px;
+}
+
+form.login-form label {
+    font-weight: 700;
+    color: #2E7D32;
+    text-align: left;
+}
+input#input-email,
+input#input-pass {
+    border-radius: 200px 100px 100px 8px;
+    border: 1px solid #2E7D32;
+    background-color: #F5F5DC;
+    background-color: #F5F5DC;
+    padding: 8px 20px;
+}
+
+.second-row {
+  margin-top: 40px;
+  text-align: center;
+  flex-direction: column;
+  background-color: #f1f1f1;
+  border-radius: 20px;
+  padding: 20px;
+      margin-bottom: 100px;
+}
+
+.second-row p {
+  font-size: 14px;
+  color: #000000;
+  white-space: pre-line;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 12px; 
+}
+
+.secondary-button {
+   padding: 12px;
+  font-size: 1em;
+  background-color: #2E7D32;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  border: 2px solid #ffffff;
+  border-radius: 200px 100px 100px 8px;
+  min-width: 200px;
+}
+
+.secondary-button:hover {
+   background-color: #F5F5DC;
+  color: #2E7D32;
+  border: 2px solid #2E7D32;
 }
 
 
