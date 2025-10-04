@@ -58,7 +58,7 @@ container.appendChild(canvas);
   backButton.textContent = 'Volver a tareas';
   backButton.classList.add('back-button');
   backButton.addEventListener('click', () => {
-    navigateTo('/task');
+    navigateTo('/user');
   });
 
   container.appendChild(backButton);

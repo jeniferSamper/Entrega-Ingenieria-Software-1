@@ -1,6 +1,6 @@
 // main.js
 import { loginView } from './view/login.js';
-import { taskView } from './view/task.js';
+import { userView } from './view/user.js';
 import { resultView } from './view/result.js';
 
 
@@ -9,7 +9,7 @@ const root = document.getElementById('root');
 // Mapa de rutas
 const routes = {
   '/': loginView,
-  '/task': taskView,
+  '/user': userView,
   '/result': resultView,
 };
 
