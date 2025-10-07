@@ -1,8 +1,10 @@
 .user-container {
   display: flex;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   max-width: 1400px;
     margin: auto;
+    flex-direction: column;
+        min-height: auto;
 }
 
 .sidebar {
@@ -84,4 +86,15 @@
   color: #000;
   border-radius: 8px;
   cursor: pointer;
+}
+
+h1.user-title
+ {
+    font-weight: 700;
+    font-size: 33px;
+    color: #2E7D32;
+}
+
+.total-content {
+    display: flex;
 }

@@ -1,7 +1,10 @@
-// main.js
 import { loginView } from './view/login.js';
 import { userView } from './view/user.js';
-import { resultView } from './view/result.js';
+import { adminView } from './view/admin.js';
+import { companyView } from './view/company.js';
+import { inorganicView } from './view/inorganic.js';
+import { hazardousView } from './view/hazardous.js';
+import { userReportView } from './view/userReport.js';
 
 
 const root = document.getElementById('root');
@@ -10,7 +13,11 @@ const root = document.getElementById('root');
 const routes = {
   '/': loginView,
   '/user': userView,
-  '/result': resultView,
+  '/admin': adminView,
+  '/company': companyView,
+  '/inorganic': inorganicView,
+  '/hazardous': hazardousView,
+  '/report': userReportView,
 };
 
 // Cambiar de vista (SPA)
@@ -33,4 +40,14 @@ window.onpopstate = () => {
 // Mostrar la vista correcta al cargar la página
 window.addEventListener('load', () => {
   renderView(window.location.pathname);
+});
+
+// Interceptar clics en enlaces con data-link
+document.addEventListener('click', (e) => {
+  const link = e.target.closest('a[data-link]');
+  if (link) {
+    e.preventDefault();
+    const path = link.getAttribute('href');
+    navigateTo(path);
+  }
 });

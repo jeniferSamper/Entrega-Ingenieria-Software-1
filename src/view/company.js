@@ -1,15 +1,13 @@
-
-
-export function userView() {
+export function companyView() {
   const logo = new URL('../assets/user-ico-2.svg', import.meta.url).href;
   const camion = new URL('../assets/logo-recoleccion-2.svg', import.meta.url).href;
 
   const container = document.createElement('div');
-  container.classList.add('user-container');
+  container.classList.add('company-container');
 
   container.innerHTML = `
     <div class="title">
-      <h1 class="user-title">Usuarios</h1>
+      <h1 class="company-title">Empresa</h1>
     </div>
      <div class="total-content">
     <div class="sidebar">
@@ -21,10 +19,10 @@ export function userView() {
       </div>
       <ul class="menu">
         <li><a href="#">Perfil</a></li>
-        <li><a href="/inorganic" data-link>Residuos Inorganicos</a></li>
-        <li><a href="/hazardous" data-link>Residuos Peligrosos</a></li>
-        <li><a href="/report" data-link>Reporte de Usuario</a></li>
-        <li><a href="#">Puntos</a></li>
+        <li><a href="#">Sistema de puntos</a></li>
+        <li><a href="#">Reporte de todos los Usuarios</a></li>
+        <li><a href="#">Reporte de Usuario</a></li>
+        <li><a href="#">Reporte de Empresas</a></li>
         <li><a href="/" data-link>Salir</a></li>
       </ul>
     </div>

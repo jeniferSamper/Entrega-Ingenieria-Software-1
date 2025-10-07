@@ -18,7 +18,8 @@ export function loginView() {
     const leftCol = document.createElement('div');
     leftCol.classList.add('col-left');
     const img = document.createElement('img');
-    img.src = './assets/banner-inicio.svg';
+    const bannerInicio = new URL('../assets/banner-inicio.svg', import.meta.url).href;
+    img.src = bannerInicio;
     img.alt = 'Ilustracion Login';
     img.classList.add('login-image');
     leftCol.appendChild(img);
@@ -121,7 +122,7 @@ form.addEventListener('submit', (e) => {
   } else if (rol === 'administrador') {
     navigateTo('/admin');
   } else if (rol === 'empresa') {
-    navigateTo('/empresa');
+    navigateTo('/company');
   }
 });
 

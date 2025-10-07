@@ -1,0 +1,88 @@
+.hazardous-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 30px;
+  background: #fff8e1;
+  border-radius: 14px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.hazardous-container h1 {
+  color: #b71c1c;
+  font-size: 24px;
+  margin-bottom: 25px;
+}
+
+#hazardousForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+#hazardousForm label {
+  align-self: flex-start;
+  margin-left: 5%;
+  font-weight: 600;
+  color: #b71c1c;
+}
+
+#hazardousForm select,
+#hazardousForm input[type="date"],
+#hazardousForm input[type="text"] {
+  width: 90%;
+  padding: 10px 14px;
+  border: 2px solid #b71c1c;
+  border-radius: 8px;
+  font-size: 15px;
+  background: #fff;
+  color: #333;
+}
+
+#hazardousForm button {
+  padding: 10px 22px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 25px;
+}
+
+/* Botón verde como en inorganic */
+#hazardousForm button[type="submit"] {
+  background-color: #388e3c;
+  color: #fff;
+}
+
+#hazardousForm button[type="submit"]:hover {
+  background-color: #2e7d32;
+}
+
+#hazardousForm button#backBtn,
+.back-only {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+#hazardousForm button#backBtn:hover,
+.back-only:hover {
+  background-color: #ccc;
+}
+
+.mensaje-aviso {
+  color: #b71c1c;
+  font-weight: 600;
+  background: #ffebee;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+/* Botones alineados al lado */
+.btn-group {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
