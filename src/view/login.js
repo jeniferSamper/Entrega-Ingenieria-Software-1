@@ -18,7 +18,8 @@ export function loginView() {
     const leftCol = document.createElement('div');
     leftCol.classList.add('col-left');
     const img = document.createElement('img');
-    img.src = './assets/banner-inicio.svg';
+    const bannerInicio = new URL('../assets/banner-inicio.svg', import.meta.url).href;
+    img.src = bannerInicio;
     img.alt = 'Ilustracion Login';
     img.classList.add('login-image');
     leftCol.appendChild(img);
@@ -52,6 +53,36 @@ export function loginView() {
     password.type = 'password';
     password.id = 'input-pass';
 
+  // Label de rol
+const roleLabel = document.createElement('p');
+roleLabel.textContent = 'Selecciona tu rol:';
+roleLabel.classList.add('role-label');
+
+// Contenedor de radios
+const roleContainer = document.createElement('div');
+roleContainer.classList.add('role-container');
+
+// Crear radios
+['usuario', 'administrador', 'empresa'].forEach(r => {
+  const radioWrapper = document.createElement('label');
+  radioWrapper.classList.add('role-option');
+
+  const radio = document.createElement('input');
+  radio.type = 'radio';
+  radio.name = 'role';
+  radio.value = r;
+
+  // Por defecto seleccionamos "usuario"
+  if (r === 'usuario') radio.checked = true;
+
+  const span = document.createElement('span');
+  span.textContent = r.charAt(0).toUpperCase() + r.slice(1);
+
+  radioWrapper.appendChild(radio);
+  radioWrapper.appendChild(span);
+  roleContainer.appendChild(radioWrapper);
+});
+
     // Botón
     const button = document.createElement('button');
     button.textContent = 'Ingresar';
@@ -64,34 +95,45 @@ export function loginView() {
         return regex.test(correo);
     };
 
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
 
-        const correo = email.value.trim();
-        const clave = password.value.trim();
+  const correo = email.value.trim();
+  const clave = password.value.trim();
+  const rol = form.querySelector('input[name="role"]:checked')?.value;
 
-        if (!correo || !clave) {
-            alert('Por favor, completa todos los campos.');
-            return;
-        }
+  if (!correo || !clave) {
+    alert('Por favor, completa todos los campos.');
+    return;
+  }
 
-        if (!esEmailValido(correo)) {
-            alert('Por favor, ingresa un correo electrónico válido.');
-            return;
-        }
+  if (!esEmailValido(correo)) {
+    alert('Por favor, ingresa un correo electrónico válido.');
+    return;
+  }
 
-        // Guardamos en localStorage para pruebas
-        localStorage.setItem('userEmail', correo);
-        localStorage.setItem('userPass', clave);
+  localStorage.setItem('userEmail', correo);
+  localStorage.setItem('userPass', clave);
+  localStorage.setItem('userRole', rol);
 
-        navigateTo('/task');
-    });
+  // Redirige según el rol
+  if (rol === 'usuario') {
+    navigateTo('/user'); 
+  } else if (rol === 'administrador') {
+    navigateTo('/admin');
+  } else if (rol === 'empresa') {
+    navigateTo('/company');
+  }
+});
+
 
     // Estructura del form
     form.appendChild(emailLabel);
     form.appendChild(email);
     form.appendChild(passLabel);
     form.appendChild(password);
+    form.appendChild(roleLabel);
+form.appendChild(roleContainer);
     form.appendChild(button);
 
     rightCol.appendChild(form);

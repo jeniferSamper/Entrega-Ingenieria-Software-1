@@ -1,0 +1,100 @@
+.user-container {
+  display: flex;
+  /* min-height: 100vh; */
+  max-width: 1400px;
+    margin: auto;
+    flex-direction: column;
+        min-height: auto;
+}
+
+.sidebar {
+      width: 20%;
+    margin: 30px 0;
+    background: #f5f5dc;
+    padding: 20px;
+    border-radius: 14px;
+}
+
+.sidebar .profile {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.sidebar .avatar {
+  font-size: 50px;
+    color: #2E7D32;
+}
+
+.sidebar h2 {
+    color: #2E7D32;
+  font-size: 18px;
+}
+
+.sidebar .menu {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar .menu li {
+  margin: 10px 0;
+}
+
+.sidebar .menu a {
+  text-decoration: none;
+   color: #2E7D32;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 8px 5px ;
+}
+
+.sidebar .menu li:hover {
+  border-left: 1px solid #2E7D32;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  position: relative;
+  width: 600px;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.overlay {
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.btn {
+  background: #6ccf69;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #000;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+h1.user-title
+ {
+    font-weight: 700;
+    font-size: 33px;
+    color: #2E7D32;
+}
+
+.total-content {
+    display: flex;
+}

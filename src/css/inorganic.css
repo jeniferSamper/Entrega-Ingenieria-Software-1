@@ -1,0 +1,104 @@
+.inorganic-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 25px 30px;
+  background: #f5f5dc;
+  border-radius: 14px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.inorganic-container h1 {
+  font-size: 24px;
+  color: #2E7D32;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+#pickupForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+#pickupForm label {
+  font-weight: 600;
+  color: #2E7D32;
+  align-self: flex-start;
+  margin-left: 5%;
+  font-size: 14px;
+}
+
+#pickupForm input[type="text"],
+#pickupForm input[type="date"],
+#pickupForm input[type="time"] {
+  width: 90%;
+  padding: 10px 14px;
+  border: 2px solid #2E7D32;
+  border-radius: 8px;
+  font-size: 15px;
+  background: #fff;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+#pickupForm input:focus {
+  outline: none;
+  border-color: #6ccf69;
+  box-shadow: 0 0 5px rgba(108, 207, 105, 0.4);
+}
+
+#pickupForm .btn-group {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+#pickupForm button {
+  padding: 10px 22px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 25px;
+}
+
+#pickupForm button[type="submit"] {
+  background-color: #6ccf69;
+  color: #000;
+}
+
+#pickupForm button[type="submit"]:hover {
+  background-color: #57b857;
+}
+
+#pickupForm button#backBtn {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+#pickupForm button#backBtn:hover {
+  background-color: #ccc;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+  .inorganic-container {
+    margin: 15px;
+    padding: 20px;
+  }
+
+  #pickupForm input[type="text"],
+  #pickupForm input[type="date"],
+  #pickupForm input[type="time"] {
+    width: 100%;
+  }
+
+  #pickupForm label {
+    margin-left: 0;
+  }
+}
